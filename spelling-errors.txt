@@ -14,6 +14,7 @@ COBRApy
 conda
 Config
 CPLEX
+CPLEX’s
 dG
 dialogs
 dropdown
@@ -24,7 +25,6 @@ EFV
 eQuiilibrator
 eQuilibrator
 etoh
-exe
 FBA
 FVA
 GAM
@@ -34,6 +34,7 @@ glc
 GLPK
 GPR
 Gurobi
+Gurobi’s
 historam
 infeasibility
 isobutanol
@@ -42,6 +43,7 @@ JSON
 Jupyter
 Kamp
 kJ
+MacOS
 Magdeburg
 MCS
 MDF
@@ -89,6 +91,7 @@ UB
 UI
 ususally
 variabiliy
+vivo
 von
 VonAlphaBisZulu
 XLSX

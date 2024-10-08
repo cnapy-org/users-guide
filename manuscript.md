@@ -4,24 +4,28 @@ keywords:
 - constraint-programming
 - metabolic-models
 lang: en-US
-date-meta: '2023-05-05'
+date-meta: '2024-10-08'
 author-meta:
 - Sven Thiele
 - Axel von Kamp
 - Pavlos Stephanos Bekiaris
 - Philipp Schneider
-header-includes: |-
+header-includes: |
   <!--
   Manubot generated metadata rendered from header-includes-template.html.
   Suggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html
   -->
   <meta name="dc.format" content="text/html" />
+  <meta property="og:type" content="article" />
   <meta name="dc.title" content="CNApy Guide" />
   <meta name="citation_title" content="CNApy Guide" />
   <meta property="og:title" content="CNApy Guide" />
   <meta property="twitter:title" content="CNApy Guide" />
-  <meta name="dc.date" content="2023-05-05" />
-  <meta name="citation_publication_date" content="2023-05-05" />
+  <meta name="dc.date" content="2024-10-08" />
+  <meta name="citation_publication_date" content="2024-10-08" />
+  <meta property="article:published_time" content="2024-10-08" />
+  <meta name="dc.modified" content="2024-10-08T08:10:18+00:00" />
+  <meta property="article:modified_time" content="2024-10-08T08:10:18+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -45,9 +49,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://cnapy-org.github.io/CNApy-guide/" />
   <meta name="citation_pdf_url" content="https://cnapy-org.github.io/CNApy-guide/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://cnapy-org.github.io/CNApy-guide/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://cnapy-org.github.io/CNApy-guide/v/b376912381fcd01c6d059ed44a84458f78e0251b/" />
-  <meta name="manubot_html_url_versioned" content="https://cnapy-org.github.io/CNApy-guide/v/b376912381fcd01c6d059ed44a84458f78e0251b/" />
-  <meta name="manubot_pdf_url_versioned" content="https://cnapy-org.github.io/CNApy-guide/v/b376912381fcd01c6d059ed44a84458f78e0251b/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://cnapy-org.github.io/CNApy-guide/v/b122272ebfda67409ca850438dff1fee923d40eb/" />
+  <meta name="manubot_html_url_versioned" content="https://cnapy-org.github.io/CNApy-guide/v/b122272ebfda67409ca850438dff1fee923d40eb/" />
+  <meta name="manubot_pdf_url_versioned" content="https://cnapy-org.github.io/CNApy-guide/v/b122272ebfda67409ca850438dff1fee923d40eb/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,10 +69,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://cnapy-org.github.io/CNApy-guide/v/b376912381fcd01c6d059ed44a84458f78e0251b/))
+([permalink](https://cnapy-org.github.io/CNApy-guide/v/b122272ebfda67409ca850438dff1fee923d40eb/))
 was automatically generated
-from [cnapy-org/CNApy-guide@b376912](https://github.com/cnapy-org/CNApy-guide/tree/b376912381fcd01c6d059ed44a84458f78e0251b)
-on May 5, 2023.
+from [cnapy-org/CNApy-guide@b122272](https://github.com/cnapy-org/CNApy-guide/tree/b122272ebfda67409ca850438dff1fee923d40eb)
+on 2024-10-08.
 </em></small>
 
 ## Authors
@@ -122,29 +126,20 @@ on May 5, 2023.
 
 ## Introduction
 
-This is the user manual of CNApy. CNApy is a graphical interface for the modelling and analysis of metabolic networks on the basis of constraint-based (stoichiometric) modeling approaches. Its main features are:
+Welcome to CNApy's user manual!
 
-- Import/export of metabolic models in the widely used SBML format
-- Visualizing the reactions and solutions in the form of CNApy (with text boxes and an SVG background) or [Escher maps](https://escher.github.io/) (which are fully editable)
-- Convenient exploration and editing of the model, including its reactions, metabolites and genes
-- Creation, loading and saving of CNApy scenarios which add custom linear constraints, reactions and flux bounds to the model without directly altering the model itself
-- Model analysis with standard and advanced constraint-based methods (listed below)
-- Saving everything as a CNApy *.cna project
+CNApy [[Paper]](https://doi.org/10.1093/bioinformatics/btab828) is a Python-based graphical user interface for a) many common methods of Constraint-Based Reconstruction and Analysis (COBRA) with stoichiometric metabolic models, b) the visualization of COBRA calculation results as *interactive and editable* metabolic maps (including Escher maps [[GitHub]](https://escher.github.io/#/)[[Paper]](<https://doi.org/10.1371/journal.pcbi.1004321>)) and c) the creation and editing of metabolic models, including its reactions, metabolites and genes. For model loading and export, CNApy supports the widely used SBML standard format [[Site]](https://sbml.org/)[[Paper]](https://www.embopress.org/doi/abs/10.15252/msb.20199110).
 
-The methods provided for model analysis (some of them are part of CNApy and some provided by [COBRApy](https://opencobra.github.io/cobrapy/)) include:
+Supported COBRA methods (partly provided by cobrapy [[GitHub]](https://github.com/opencobra/cobrapy)[[Paper]](https://doi.org/10.1186/1752-0509-7-74)) include:
 
-- Flux Balance Analysis (FBA)
-- Flux Variability Analysis (FVA)
-- Making measured flux scenarios stoichiometrically feasible
-- Elementary Flux Modes (EFM)
-- Thermodynamic methods based on [OptMDFpathway](https://doi.org/10.1371/journal.pcbi.1006492)
-- Many advanced strain design algorithms such as [OptKnock](https://doi.org/10.1002/bit.10803), [RobustKnock](https://doi.org/10.1093/bioinformatics/btp704), [OptCouple](https://doi.org/10.1016/j.mec.2019.e00087) and [advanced Minimal Cut Sets](https://doi.org/10.1371/journal.pcbi.1008110) through its integration of the [StrainDesign](https://github.com/klamt-lab/straindesign) package.
-- Yield optimization (based on linear-fractional programming)
-- Phase plane analysis
-
-All results of these calculations can then be visualized in the model's map as well as exported in the form of text or partly Excel XLSX files.
-
-CNApy is available at [https://github.com/cnapy-org/CNApy](https://github.com/cnapy-org/CNApy) under the [Apache-2.0 License](https://github.com/ARB-Lab/CNApy/blob/master/LICENSE).
+- Flux Balance Analysis (FBA) [[Review]](https://doi.org/10.1038/nbt.1614)
+- Flux Variability Analysis (FVA) [[Paper]](https://doi.org/10.1016/j.ymben.2003.09.002)
+- Yield optimization (based on linear-fractional programming) [[Paper]](https://doi.org/10.1016/j.ymben.2018.02.001)
+- Phase plane analyses (can include flux and/or yield optimizations)
+- Making measured *in vivo* flux scenarios stoichiometrically feasible, optionally also by altering a biomass reaction [[Paper]](https://academic.oup.com/bioinformatics/article/39/10/btad600/7284109)
+- Elementary Flux Modes (EFM) [[Review]](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/biot.201200269)
+- Thermodynamic methods based on OptMDFpathway [[Paper]](https://doi.org/10.1371/journal.pcbi.1006492)
+- Many advanced strain design algorithms such as OptKnock [[Paper]](https://doi.org/10.1002/bit.10803), RobustKnock [[Paper]](https://doi.org/10.1093/bioinformatics/btp704), OptCouple [[Paper]](https://doi.org/10.1016/j.mec.2019.e00087) and advanced Minimal Cut Sets [[Paper]](https://doi.org/10.1371/journal.pcbi.1008110) through its StrainDesign [[GitHub]](https://github.com/klamt-lab/straindesign)[[Paper]](https://doi.org/10.1093/bioinformatics/btac632) integration
 
 We appreciate any comments or suggestions for improvements and we are greatly interested in your feedback! If you have questions, suggestions or bug reports regarding CNApy, you can use either of the [CNApy GitHub issues](https://github.com/cnapy-org/CNApy/issues), the [CNApy GitHub discussions](https://github.com/cnapy-org/CNApy/discussions) or the [CNApy Gitter chat room](https://gitter.im/cnapy-org/community).
 
@@ -155,22 +150,23 @@ Thank you for using CNApy!
 
 ### CNApy main program
 
-There are three ways to install CNApy itself:
+There are 4 alternative ways to install CNApy:
 
-1. As the easiest way only under Windows, you can use the .exe installer attached to the assets at the bottom of [CNApy's latest release](https://github.com/cnapy-org/CNApy/releases/latest).
-2. Under any operating system, you can install CNApy as a conda package as described in section [Install CNApy as conda package](https://github.com/cnapy-org/CNApy#install-cnapy-as-conda-package).
-3. If you want to clone and/or develop CNApy, follow the instruction in section [Setup the CNApy development environment](https://github.com/cnapy-org/CNApy#setup-the-cnapy-development-environment).
+1. The easiest way for any user to install CNApy is by downloading its installer, which is provided for Windows, Linux and MacOS, see [Using CNApy installer](https://github.com/cnapy-org/CNApy#using-cnapy-installer) for more.
+2. If you already have installed Python 3.10 (no other version) on your system, you can install CNApy simply through ```pip install cnapy``` in your console. Afterwards, you can start CNApy's GUI by running either ```cnapy``` or, if this doesn't work, ```python -m cnapy``` where "python" must call your Python 3.10 installation.
+3. If you already use conda or mamba (for mamba, just change the "conda" command to "mamba"), you can create a CNApy environment named ```cnapy-1.2.2``` as follows: 1) Run ```conda create --name cnapy-1.2.2 python=3.10 pip openjdk -c conda-forge```, 2) run ```conda activate cnapy-1.2.2```, 3) run ```pip install cnapy```. Then, you can start CNApy in the cnapy-1.2.2 conda environment by running either ```cnapy``` or, if this doesn't work, ```python -m cnapy```. Note that the [cnapy conda package](https://anaconda.org/cnapy/cnapy) is currently *not* being updated due to licensing uncertainties.
+4. If you want to develop CNApy, follow the instruction for the cloning and setup of the CNApy repository using git and conda or mamba in section [Setup the CNApy development environment](https://github.com/cnapy-org/CNApy#setup-the-cnapy-development-environment).
 
-**NOTE: After CNApy's installation, it is recommended to download the [CNApy example projects](https://github.com/cnapy-org/CNApy-projects) (including interactive maps of models such as [ECC2](https://www.nature.com/articles/srep39647), [*i*ML1515](https://www.nature.com/articles/nbt.3956) and many more) by starting CNApy and clicking on "Download CNApy example projects..." in the "Projects" menu entry.**
-
+*Note*: After CNApy's installation, it is recommended to download the [CNApy example projects](https://github.com/cnapy-org/CNApy-projects) (including interactive maps of models such as [ECC2](https://www.nature.com/articles/srep39647), [*i*ML1515](https://www.nature.com/articles/nbt.3956) and many more) by starting CNApy and clicking on "Download CNApy example projects..." in the "Projects" menu entry or by following the first start-up instructions.
 
 ### Installing additional solvers (optional)
 
-CNApy itself is already packaged and installed with the open source linear programming solver [GLPK](https://www.gnu.org/software/glpk/) which is fast enough for calculations with small models and which is not restricted in the possible number of variables.
+CNApy itself is already packaged and installed with the open source linear programming solver [GLPK](https://www.gnu.org/software/glpk/) which is fast enough for simple calculations with small models and which is not restricted in the possible number of variables.
 
-In addition, CNApy is also pre-packaged with the Community editions of the much more powerful commercial solvers [IBM CPLEX](https://www.ibm.com/products/ilog-cplex-optimization-studio) and [Gurobi](https://www.gurobi.com/). These community editions can only run with models up to 1000 variables. In order to use one of these solvers with models which contain more variables, the *full versions* of either two of these solvers have to be installed and connected to CNApy. In order to help you with this process, CNApy contains a wizard which explains the process in detail and which takes over some of the neccessary tasks. You can find the wizards under the "Config" menu entry.
+For strain design and thermodyanmic calculations, you can also use the free and open-source solver [SCIP](https://www.scipopt.org/) which is much faster than GLPK but still often much slower than IBM CPLEX and Gurobi (see next paragraph). You can install SCIP by following the instructions [on its website](https://www.scipopt.org/index.php#download).
 
-For strain design and thermodyanmic calculations, you can also use the free and open-source solver [SCIP](https://www.scipopt.org/) which is much faster than GLPK but still often much slower than IBM CPLEX and Gurobi. You can install SCIP according to the instructions [on its website](https://www.scipopt.org/index.php#download).
+In addition, CNApy comes pre-packaged with the Community editions of the much faster commercial solvers [IBM CPLEX](https://www.ibm.com/products/ilog-cplex-optimization-studio) and [Gurobi](https://www.gurobi.com/). These community editions can only run with models up to 1000 variables. In order to use one of these solvers with models which contain more variables, the *full versions* of either two of these solvers have to be installed and connected to CNApy. You can obtain these full versions from CPLEX's and Gurobi's web sites, respectively.
+In order to help you with the installation of the full versions, CNApy contains a wizard which explains the process in detail and which takes over some of the neccessary tasks. You can find these wizards under the "Config" menu entry. Click on the wizard menu entry, and follow the wizard's detailed instructions.
 
 
 ## Configuration
@@ -293,7 +289,7 @@ Reaction boxes can be put on the map by dragging over them from the reactions li
 You can adjust the box size with the keyboard shortcuts `Ctrl`{.grey} + `+`{.grey} and `Ctrl`{.grey} + `-`{.grey}.
 You can move the reaction box to the desired position by dragging them on their handles.
 If you want to move all reaction boxes together, press `Ctrl`{.grey} while dragging.
-In addition, you can set a specific (pixel-wise) position by right-clicking on a reaction box and selecting "set box position...".
+You can also set a specific (pixel-wise) position by right-clicking on a reaction box and selecting "set box position...".
 
 Positioning a big number of reaction boxes can be tiresome.
 Therefore, CNApy allows you to load and save reaction box positions via the *Map* menu.
@@ -658,3 +654,4 @@ The result of the operation replaces the current flux values.
 
 <!-- Explicitly insert bibliography here -->
 <div id="refs"></div>
+
